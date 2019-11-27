@@ -6,7 +6,7 @@
  * ------------------------------------
  */
  
-$to    = "test@surjithctly.in"; // <--- Your email ID here
+$to    = "info@microfacturingusa.org"; // <--- Your email ID here
 $subject_txt = "$name sent you a message via Event Website"; // <--- Contact for Subject here.
 
 /*
@@ -18,6 +18,8 @@ $subject_txt = "$name sent you a message via Event Website"; // <--- Contact for
 $name  = $_REQUEST["first_name"]  . ' ' . $_REQUEST["last_name"] ;
 $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
+//11/27 - Adding Open House
+$open = $_REQUEST["openHouse"];
 $msg   = $_REQUEST["message"];
 
 if (isset($email) && isset($name)) {
@@ -26,7 +28,7 @@ if (isset($email) && isset($name)) {
 		$headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
 $headers .= "From: ".$name." <".$email.">\r\n"."Reply-To: ".$email."\r\n" ;
-$msg     = "From: $name<br/> Email: $email <br/> Phone: $phone <br/>Message: $msg <br><br> -- <br>This e-mail was sent from a contact form on $website";
+$msg     = "From: $name<br/> Email: $email <br/> Open House: $open <br/> Phone: $phone <br/>Message: $msg <br><br> -- <br>This e-mail was sent from a contact form on $website";
 	
    $mail =  mail($to, $subject, $msg, $headers);
   if($mail)
